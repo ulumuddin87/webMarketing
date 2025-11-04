@@ -6,6 +6,7 @@
   <title>Promosi Produk - Smart Marketing</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header>
     <h1>Smart Marketing</h1>
@@ -42,20 +43,28 @@
     </div>
   </section>
 
+  <!-- ✅ Bagian Form Kontak (terdeteksi Netlify) -->
   <section id="contact" class="contact">
     <h2>Hubungi Kami</h2>
 
-    <!-- ✅ Form Netlify (terdeteksi otomatis) -->
-    <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <form name="contact" method="POST" data-netlify="true">
       <input type="hidden" name="form-name" value="contact" />
-      <p hidden>
-        <label>Jangan isi ini: <input name="bot-field" /></label>
+
+      <p>
+        <label>Nama: <input type="text" name="name" required /></label>
       </p>
 
-      <input type="text" id="name" name="name" placeholder="Nama Anda" required />
-      <input type="email" id="email" name="email" placeholder="Email Anda" required />
-      <textarea id="message" name="message" placeholder="Pesan Anda" required></textarea>
-      <button type="submit">Kirim Pesan</button>
+      <p>
+        <label>Email: <input type="email" name="email" required /></label>
+      </p>
+
+      <p>
+        <label>Pesan: <textarea name="message" required></textarea></label>
+      </p>
+
+      <p>
+        <button type="submit">Kirim</button>
+      </p>
     </form>
 
     <p id="statusMsg"></p>
@@ -67,7 +76,7 @@
 
   <!-- ✅ Script interaktif -->
   <script>
-  // 🔹 Tombol scroll halus
+  // Tombol scroll halus ke fitur
   document.getElementById("ctaBtn").addEventListener("click", () => {
     window.scrollTo({
       top: document.getElementById("features").offsetTop,
@@ -75,28 +84,16 @@
     });
   });
 
-  // 🔹 Kirim Form ke Netlify + tampilkan pesan sukses/gagal
-  document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const form = e.target;
+  // Pesan sukses saat kirim form
+  const form = document.querySelector('form[name="contact"]');
+  form.addEventListener("submit", () => {
     const statusMsg = document.getElementById("statusMsg");
-    const data = new FormData(form);
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(data).toString()
-    })
-    .then(() => {
+    statusMsg.textContent = "✅ Pesan Anda sedang dikirim...";
+    statusMsg.style.color = "blue";
+    setTimeout(() => {
       statusMsg.textContent = "✅ Pesan berhasil dikirim! Terima kasih 😊";
       statusMsg.style.color = "green";
-      form.reset();
-    })
-    .catch(() => {
-      statusMsg.textContent = "❌ Terjadi kesalahan, coba lagi nanti.";
-      statusMsg.style.color = "red";
-    });
+    }, 1000);
   });
   </script>
 </body>
