@@ -43,19 +43,17 @@
  <section id="contact" class="contact">
   <h2>Hubungi Kami</h2>
 
-  <!-- Tambahkan atribut netlify -->
-  <form name="contact" method="POST" data-netlify="true">
-    <input type="text" name="name" placeholder="Nama Anda" required />
-    <input type="email" name="email" placeholder="Email Anda" required />
-    <textarea name="message" placeholder="Pesan Anda" required></textarea>
-    <button type="submit">Kirim Pesan</button>
-  </form>
+  <!-- ✅ Form pakai id contactForm + konek ke Netlify -->
+  <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="contact" />
+    <p hidden>
+      <label>Jangan isi ini: <input name="bot-field" /></label>
+    </p>
 
-  <!-- Form “hidden” untuk Netlify agar terdeteksi -->
-  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <textarea name="message"></textarea>
+    <input type="text" id="name" name="name" placeholder="Nama Anda" required />
+    <input type="email" id="email" name="email" placeholder="Email Anda" required />
+    <textarea id="message" name="message" placeholder="Pesan Anda" required></textarea>
+    <button type="submit">Kirim Pesan</button>
   </form>
 
   <p id="statusMsg"></p>
