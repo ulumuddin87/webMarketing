@@ -45,9 +45,8 @@
   <section id="contact" class="contact">
     <h2>Hubungi Kami</h2>
 
-    <!-- ✅ Form Netlify + Valid -->
+    <!-- ✅ Form Netlify (terdeteksi otomatis) -->
     <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <!-- Form Hidden Field Wajib -->
       <input type="hidden" name="form-name" value="contact" />
       <p hidden>
         <label>Jangan isi ini: <input name="bot-field" /></label>
@@ -66,10 +65,20 @@
     <p>© 2025 Grafiqu. All rights reserved.</p>
   </footer>
 
-  <!-- ✅ Script aman untuk Netlify -->
+  <!-- ✅ Script interaktif -->
   <script>
+  // 🔹 Tombol scroll halus
+  document.getElementById("ctaBtn").addEventListener("click", () => {
+    window.scrollTo({
+      top: document.getElementById("features").offsetTop,
+      behavior: "smooth"
+    });
+  });
+
+  // 🔹 Kirim Form ke Netlify + tampilkan pesan sukses/gagal
   document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
+
     const form = e.target;
     const statusMsg = document.getElementById("statusMsg");
     const data = new FormData(form);
@@ -80,12 +89,12 @@
       body: new URLSearchParams(data).toString()
     })
     .then(() => {
-      statusMsg.textContent = "✅ Pesan berhasil dikirim!";
+      statusMsg.textContent = "✅ Pesan berhasil dikirim! Terima kasih 😊";
       statusMsg.style.color = "green";
       form.reset();
     })
     .catch(() => {
-      statusMsg.textContent = "❌ Terjadi kesalahan, coba lagi.";
+      statusMsg.textContent = "❌ Terjadi kesalahan, coba lagi nanti.";
       statusMsg.style.color = "red";
     });
   });
