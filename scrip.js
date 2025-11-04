@@ -1,3 +1,4 @@
+// 🔹 Tombol scroll ke bagian fitur
 document.getElementById("ctaBtn").addEventListener("click", () => {
   window.scrollTo({
     top: document.getElementById("features").offsetTop,
@@ -5,6 +6,7 @@ document.getElementById("ctaBtn").addEventListener("click", () => {
   });
 });
 
+// 🔹 Kirim Form ke Netlify dengan aman
 document.getElementById("contactForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -19,30 +21,22 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
     return;
   }
 
-  // 📨 Kirim ke Netlify via fetch
+  // 📨 Kirim ke Netlify dalam format yang dikenali
   const formData = new FormData(this);
 
   fetch("/", {
     method: "POST",
-    body: formData
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString()
   })
   .then(() => {
-    statusMsg.textContent = "Pesan berhasil dikirim! Terima kasih 😊";
+    statusMsg.textContent = "✅ Pesan berhasil dikirim! Terima kasih 😊";
     statusMsg.style.color = "green";
     this.reset();
   })
   .catch((error) => {
     console.error("Gagal mengirim:", error);
-    statusMsg.textContent = "Terjadi kesalahan. Coba lagi nanti.";
+    statusMsg.textContent = "❌ Terjadi kesalahan. Coba lagi nanti.";
     statusMsg.style.color = "red";
   });
-});
-
-
-  // Simulasi pengiriman
-  setTimeout(() => {
-    statusMsg.textContent = "Pesan berhasil dikirim! Terima kasih 😊";
-    statusMsg.style.color = "green";
-    document.getElementById("contactForm").reset();
-  }, 1000);
 });
