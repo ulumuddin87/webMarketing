@@ -40,31 +40,55 @@
         <p>Hemat waktu dengan sistem otomatisasi cerdas.</p>
       </div>
     </div>
- <section id="contact" class="contact">
-  <h2>Hubungi Kami</h2>
+  </section>
 
-  <!-- ✅ Form pakai id contactForm + konek ke Netlify -->
-  <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-  <input type="hidden" name="form-name" value="contact" />
-  <p hidden>
-    <label>Jangan isi ini: <input name="bot-field" /></label>
-  </p>
+  <section id="contact" class="contact">
+    <h2>Hubungi Kami</h2>
 
-  <input type="text" id="name" name="name" placeholder="Nama Anda" required />
-  <input type="email" id="email" name="email" placeholder="Email Anda" required />
-  <textarea id="message" name="message" placeholder="Pesan Anda" required></textarea>
-  <button type="submit">Kirim Pesan</button>
-</form>
+    <!-- ✅ Form Netlify + Valid -->
+    <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <!-- Form Hidden Field Wajib -->
+      <input type="hidden" name="form-name" value="contact" />
+      <p hidden>
+        <label>Jangan isi ini: <input name="bot-field" /></label>
+      </p>
 
+      <input type="text" id="name" name="name" placeholder="Nama Anda" required />
+      <input type="email" id="email" name="email" placeholder="Email Anda" required />
+      <textarea id="message" name="message" placeholder="Pesan Anda" required></textarea>
+      <button type="submit">Kirim Pesan</button>
+    </form>
 
-  <p id="statusMsg"></p>
-</section>
-
+    <p id="statusMsg"></p>
+  </section>
 
   <footer>
     <p>© 2025 Grafiqu. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- ✅ Script aman untuk Netlify -->
+  <script>
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const statusMsg = document.getElementById("statusMsg");
+    const data = new FormData(form);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(data).toString()
+    })
+    .then(() => {
+      statusMsg.textContent = "✅ Pesan berhasil dikirim!";
+      statusMsg.style.color = "green";
+      form.reset();
+    })
+    .catch(() => {
+      statusMsg.textContent = "❌ Terjadi kesalahan, coba lagi.";
+      statusMsg.style.color = "red";
+    });
+  });
+  </script>
 </body>
 </html>
