@@ -45,16 +45,17 @@
 
   <!-- ✅ Form pakai id contactForm + konek ke Netlify -->
   <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="contact" />
-    <p hidden>
-      <label>Jangan isi ini: <input name="bot-field" /></label>
-    </p>
+  <input type="hidden" name="form-name" value="contact" />
+  <p hidden>
+    <label>Jangan isi ini: <input name="bot-field" /></label>
+  </p>
 
-    <input type="text" id="name" name="name" placeholder="Nama Anda" required />
-    <input type="email" id="email" name="email" placeholder="Email Anda" required />
-    <textarea id="message" name="message" placeholder="Pesan Anda" required></textarea>
-    <button type="submit">Kirim Pesan</button>
-  </form>
+  <input type="text" id="name" name="name" placeholder="Nama Anda" required />
+  <input type="email" id="email" name="email" placeholder="Email Anda" required />
+  <textarea id="message" name="message" placeholder="Pesan Anda" required></textarea>
+  <button type="submit">Kirim Pesan</button>
+</form>
+
 
   <p id="statusMsg"></p>
 </section>
