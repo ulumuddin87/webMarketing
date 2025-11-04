@@ -40,18 +40,27 @@
         <p>Hemat waktu dengan sistem otomatisasi cerdas.</p>
       </div>
     </div>
-  </section>
+ <section id="contact" class="contact">
+  <h2>Hubungi Kami</h2>
 
-  <section id="contact" class="contact">
-    <h2>Hubungi Kami</h2>
-    <form id="contactForm">
-      <input type="text" id="name" placeholder="Nama Anda" required />
-      <input type="email" id="email" placeholder="Email Anda" required />
-      <textarea id="message" placeholder="Pesan Anda" required></textarea>
-      <button type="submit">Kirim Pesan</button>
-    </form>
-    <p id="statusMsg"></p>
-  </section>
+  <!-- Tambahkan atribut netlify -->
+  <form name="contact" method="POST" data-netlify="true">
+    <input type="text" name="name" placeholder="Nama Anda" required />
+    <input type="email" name="email" placeholder="Email Anda" required />
+    <textarea name="message" placeholder="Pesan Anda" required></textarea>
+    <button type="submit">Kirim Pesan</button>
+  </form>
+
+  <!-- Form “hidden” untuk Netlify agar terdeteksi -->
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+  </form>
+
+  <p id="statusMsg"></p>
+</section>
+
 
   <footer>
     <p>© 2025 Grafiqu. All rights reserved.</p>
