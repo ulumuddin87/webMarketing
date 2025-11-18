@@ -1,103 +1,243 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Promosi Produk - Smart Marketing</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Grafiqu IT Solution - Profesional IT Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Dark Mode Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: {} }
+    }
+  </script>
+
+  <!-- AOS Animation -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    // DARK MODE TOGGLE
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle("dark");
+      localStorage.setItem("darkMode", document.documentElement.classList.contains("dark"));
+    }
+
+    // Simpan preferensi dark mode
+    document.addEventListener("DOMContentLoaded", () => {
+      if (localStorage.getItem("darkMode") === "true") {
+        document.documentElement.classList.add("dark");
+      }
+    });
+  </script>
 </head>
-<body>
-  <header>
-    <h1>Smart Marketing</h1>
-    <nav>
-      <a href="#home">Beranda</a>
-      <a href="#features">Fitur</a>
-      <a href="#contact">Kontak</a>
+
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+
+<!-- ================= HEADER ================= -->
+<header class="bg-blue-700 dark:bg-blue-900 text-white py-4 shadow-lg" data-aos="fade-down">
+  <div class="container mx-auto flex justify-between items-center px-4">
+    <h1 class="text-xl font-bold">Grafiqu IT Solution</h1>
+    <nav class="space-x-6 hidden md:block">
+      <a href="#home" class="hover:underline">Beranda</a>
+      <a href="#about" class="hover:underline">Tentang Kami</a>
+      <a href="#services" class="hover:underline">Layanan</a>
+      <a href="#pricing" class="hover:underline">Pricing</a>
+      <a href="#portfolio" class="hover:underline">Portfolio</a>
+      <a href="#contact" class="hover:underline">Kontak</a>
     </nav>
-  </header>
 
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h2>Tingkatkan Penjualan Bisnismu!</h2>
-      <p>Kami bantu promosikan produk Anda dengan strategi digital terbaik.</p>
-      <button id="ctaBtn">Pelajari Lebih Lanjut</button>
+    <!-- Dark Mode Button -->
+    <button onclick="toggleDarkMode()" class="px-3 py-1 bg-white text-blue-700 rounded-lg shadow ml-4 hover:bg-blue-100">
+      🌓 Mode
+    </button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="bg-gradient-to-r from-blue-700 to-blue-500 dark:from-blue-900 dark:to-blue-700 text-white py-32 text-center" data-aos="fade-up">
+  <h2 class="text-4xl font-bold mb-4">Solusi IT Modern & Profesional</h2>
+  <p class="max-w-2xl mx-auto text-lg mb-6">
+    Layanan teknologi IT software, hadware, CCTV, dan pengembangan aplikasi untuk bisnis,
+    sekolah, UMKM, dan instansi lainnya.
+  </p>
+  <a href="#services" class="bg-white text-blue-700 font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-200">
+    Jelajahi Layanan
+  </a>
+</section>
+
+<!-- ================= TENTANG KAMI ================= -->
+<section id="about" class="py-20" data-aos="fade-up">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-6">Tentang Kami</h2>
+    <p class="max-w-3xl mx-auto text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+      Grafiqu IT Solution adalah penyedia layanan teknologi informasi yang berfokus pada perangkat komputer,
+      software, hadware, instalasi CCTV, serta pengembangan aplikasi modern. Kami berkomitmen memberikan pelayanan cepat,
+      profesional, dan terpercaya untuk personal, sekolah, kantor, UMKM, dan instansi lainnya.
+    </p>
+  </div>
+</section>
+
+<!-- ================= LAYANAN ================= -->
+<section id="services" class="py-20 bg-gray-100 dark:bg-gray-800" data-aos="fade-up">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-6">Layanan Kami</h2>
+
+    <div class="grid md:grid-cols-4 gap-8 mt-10">
+
+      <div class="bg-white dark:bg-gray-700 shadow-lg p-6 rounded-xl hover:-translate-y-1 transition" data-aos="zoom-in">
+        <h3 class="font-bold text-lg text-blue-700 dark:text-blue-300">Perangkat Komputer</h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">Instalasi, konfigurasi, dan maintenance perangkat komputer & jaringan.</p>
+      </div>
+
+      <div class="bg-white dark:bg-gray-700 shadow-lg p-6 rounded-xl hover:-translate-y-1 transition" data-aos="zoom-in" data-aos-delay="100">
+        <h3 class="font-bold text-lg text-blue-700 dark:text-blue-300">Instalasi CCTV</h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">Pengadaan dan pemasangan CCTV berkualitas dengan monitoring online.</p>
+      </div>
+
+      <div class="bg-white dark:bg-gray-700 shadow-lg p-6 rounded-xl hover:-translate-y-1 transition" data-aos="zoom-in" data-aos-delay="200">
+        <h3 class="font-bold text-lg text-blue-700 dark:text-blue-300">Pengembangan Aplikasi</h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">Pembuatan aplikasi web & mobile sesuai kebutuhan Anda.</p>
+      </div>
+
+      <div class="bg-white dark:bg-gray-700 shadow-lg p-6 rounded-xl hover:-translate-y-1 transition" data-aos="zoom-in" data-aos-delay="300">
+        <h3 class="font-bold text-lg text-blue-700 dark:text-blue-300">IT Support</h3>
+        <p class="mt-2 text-gray-600 dark:text-gray-300">Troubleshooting dan dukungan teknologi profesional.</p>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="features" class="features">
-    <h2>Fitur Unggulan</h2>
-    <div class="feature-list">
-      <div class="card">
-        <h3>Analisis Pasar</h3>
-        <p>Gunakan data untuk menentukan strategi pemasaran yang tepat.</p>
+<!-- ================= PRICING ================= -->
+<section id="pricing" class="py-20" data-aos="fade-up">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-12">Pricing Layanan</h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow hover:shadow-xl transition" data-aos="flip-left">
+        <h3 class="text-2xl font-bold text-blue-700 dark:text-blue-300">Basic</h3>
+        <p class="text-4xl font-extrabold my-4">Rp 150.000</p>
+        <ul class="text-left text-gray-600 dark:text-gray-300 space-y-2">
+          <li>✔ Maintenance Hadware</li>
+          <li>✔ Instal Ulang OS</li>
+          <li>✔ Maintenance Software</li>
+        </ul>
       </div>
-      <div class="card">
-        <h3>Manajemen Iklan</h3>
-        <p>Atur kampanye iklan Anda di berbagai platform dengan mudah.</p>
+
+      <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow border-4 border-blue-600 dark:border-blue-400 hover:shadow-xl transition" data-aos="flip-left" data-aos-delay="150">
+        <h3 class="text-2xl font-bold text-blue-600 dark:text-blue-300">Professional</h3>
+        <p class="text-4xl font-extrabold my-4">Rp 450.000</p>
+        <ul class="text-left text-gray-600 dark:text-gray-300 space-y-2">
+          <li>✔ Instalasi Jaringan LAN</li>
+          <li>✔ Instalasi CCTV</li>
+          <li>✔ Trouble Shooting</li>
+        </ul>
       </div>
-      <div class="card">
-        <h3>Otomasi Pemasaran</h3>
-        <p>Hemat waktu dengan sistem otomatisasi cerdas.</p>
+
+      <div class="bg-white dark:bg-gray-700 p-8 rounded-xl shadow hover:shadow-xl transition" data-aos="flip-left" data-aos-delay="300">
+        <h3 class="text-2xl font-bold text-blue-700 dark:text-blue-300">Premium</h3>
+        <p class="text-4xl font-extrabold my-4">Rp 1.500.000</p>
+        <ul class="text-left text-gray-600 dark:text-gray-300 space-y-2">
+          <li>✔ Maintenace CCTV</li>
+          <li>✔ Pengembangan Aplikasi</li>
+          <li>✔ IT Support</li>
+          <li>✔ Maintenace Hadware</li>
+        </ul>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact" class="contact">
-    <h2>Hubungi Kami</h2>
+<!-- ================= PORTFOLIO ================= -->
+<section id="portfolio" class="py-20 bg-gray-100 dark:bg-gray-800" data-aos="fade-up">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-10">Portfolio Proyek</h2>
 
-    <!-- ✅ Form Netlify (terdeteksi otomatis) -->
-    <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow hover:shadow-xl transition" data-aos="zoom-in">
+        <img src="https://via.placeholder.com/500x300?text=Project+CCTV" class="w-full">
+        <div class="p-4">
+          <h3 class="font-bold text-lg text-blue-700 dark:text-blue-300">Instalasi CCTV Kantor</h3>
+          <p class="text-gray-600 dark:text-gray-300">16 channel CCTV + monitoring smartphone.</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="150">
+        <img src="https://via.placeholder.com/500x300?text=Aplikasi+Sekolah">
+        <div class="p-4">
+          <h3 class="font-bold text-lg text-blue-700 dark:text-blue-300">Aplikasi Sekolah</h3>
+          <p class="text-gray-600 dark:text-gray-300">Absensi, dashboard guru, nilai & laporan.</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="300">
+        <img src="https://via.placeholder.com/500x300?text=LAN+Office">
+        <div class="p-4">
+          <h3 class="font-bold text-lg text-blue-700 dark:text-blue-300">Setup LAN Kantor</h3>
+          <p class="text-gray-600 dark:text-gray-300">Instalasi jaringan kantor full system.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= KONTAK ================= -->
+<section id="contact" class="py-20" data-aos="fade-up">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-6">Hubungi Kami</h2>
+
+    <form name="contact" method="POST" data-netlify="true" class="max-w-lg mx-auto space-y-4 bg-white dark:bg-gray-700 p-8 rounded-xl shadow">
       <input type="hidden" name="form-name" value="contact" />
-      <p hidden>
-        <label>Jangan isi ini: <input name="bot-field" /></label>
-      </p>
 
-      <input type="text" id="name" name="name" placeholder="Nama Anda" required />
-      <input type="email" id="email" name="email" placeholder="Email Anda" required />
-      <textarea id="message" name="message" placeholder="Pesan Anda" required></textarea>
-      <button type="submit">Kirim Pesan</button>
+      <input type="text" name="name" placeholder="Nama Anda" required
+             class="w-full border px-4 py-2 rounded-lg dark:bg-gray-800 dark:border-gray-600" />
+
+      <input type="email" name="email" placeholder="Email Anda" required
+             class="w-full border px-4 py-2 rounded-lg dark:bg-gray-800 dark:border-gray-600" />
+
+      <textarea name="message" placeholder="Pesan Anda" rows="4" required
+                class="w-full border px-4 py-2 rounded-lg dark:bg-gray-800 dark:border-gray-600"></textarea>
+
+      <button class="bg-blue-700 dark:bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-800 w-full">
+        Kirim Pesan
+      </button>
     </form>
 
-    <p id="statusMsg"></p>
-  </section>
+    <!-- WhatsApp Info -->
+    <div class="mt-10 text-lg" data-aos="fade-up">
+      <p>📞 Untuk informasi lebih lanjut atau konsultasi, hubungi kami melalui WhatsApp:</p>
+      <p class="text-2xl font-bold text-green-600 dark:text-green-400 mt-2">085646477523</p>
+      <p class="mt-6">grafiqutech@gmail.com</p>
+      <p class="mt-6">kepercayanan customer adalah aset kami</p>
+      <p class="font-bold text-xl">GRAFIQU IT SOLUTION</p>
+    </div>
 
-  <footer>
-    <p>© 2025 Grafiqu. All rights reserved.</p>
-  </footer>
+  </div>
+</section>
 
-  <!-- ✅ Script interaktif -->
-  <script>
-  // 🔹 Tombol scroll halus
-  document.getElementById("ctaBtn").addEventListener("click", () => {
-    window.scrollTo({
-      top: document.getElementById("features").offsetTop,
-      behavior: "smooth"
-    });
-  });
+<!-- ================= FOOTER ================= -->
+<footer class="bg-blue-700 dark:bg-blue-900 text-white text-center py-4 mt-10" data-aos="fade-up">
+  © 2025 Grafiqu IT Solution. All rights reserved.
+</footer>
 
-  // 🔹 Kirim Form ke Netlify + tampilkan pesan sukses/gagal
-  document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/6285646477523?text=Halo%20Grafiqu%20IT%20Solution,%20saya%20ingin%20bertanya%20tentang%20layanan%20Anda." target="_blank"
+   class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl text-2xl z-50"
+   data-aos="zoom-in">
+  <svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='currentColor'><path d='M20.52 3.48A11.8 11.8 0 0 0 12.02 0C5.64 0 .38 5.26.38 11.64c0 2.05.54 4.05 1.57 5.82L0 24l6.7-1.94a11.63 11.63 0 0 0 5.32 1.31h.01c6.38 0 11.64-5.26 11.64-11.64a11.6 11.6 0 0 0-3.15-8.25zM12.03 21.3c-1.7 0-3.36-.46-4.8-1.33l-.34-.2-3.98 1.15 1.18-3.87-.22-.4a9.47 9.47 0 0 1-1.44-5.06c0-5.27 4.29-9.56 9.56-9.56 2.55 0 4.95.99 6.76 2.8a9.48 9.48 0 0 1 2.8 6.76c0 5.27-4.29 9.56-9.56 9.56zm5.27-7.14c-.29-.14-1.7-.84-1.96-.94-.26-.1-.45-.14-.64.14-.19.29-.74.94-.9 1.13-.17.19-.33.21-.62.07-.29-.14-1.22-.45-2.32-1.43-.86-.77-1.44-1.72-1.61-2-.17-.29-.02-.45.12-.59.12-.12.29-.33.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.47-.64-.48h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.45s1.02 2.84 1.16 3.04c.14.19 2 3.05 4.84 4.28.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.7-.7 1.94-1.38.24-.69.24-1.28.17-1.38-.07-.1-.26-.17-.55-.31z'/></svg>
+</a>
 
-    const form = e.target;
-    const statusMsg = document.getElementById("statusMsg");
-    const data = new FormData(form);
+<!-- Initialize AOS -->
+<script>
+  AOS.init({ duration: 800, once: true });
+</script>
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(data).toString()
-    })
-    .then(() => {
-      statusMsg.textContent = "✅ Pesan berhasil dikirim! Terima kasih 😊";
-      statusMsg.style.color = "green";
-      form.reset();
-    })
-    .catch(() => {
-      statusMsg.textContent = "❌ Terjadi kesalahan, coba lagi nanti.";
-      statusMsg.style.color = "red";
-    });
-  });
-  </script>
 </body>
 </html>
